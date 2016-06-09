@@ -7,7 +7,9 @@
     'app.admin',
     'app.dashboard',
     'app.layout',
-    'app.album'
+    'app.album',
+    'app.upload',
+    'ngFileUpload'
   ]);
 
 })();
