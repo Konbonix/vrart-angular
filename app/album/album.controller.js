@@ -10,7 +10,7 @@
   function albumController($q, dataservice, logger) {
     var vm = this;
     vm.news = {
-      title: 'hottowel',
+      title: 'Test',
       description: 'Hot Towel Angular is a SPA template for Angular developers.'
     };
     vm.messageCount = 0;

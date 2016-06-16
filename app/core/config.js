@@ -14,7 +14,7 @@
 
   var config = {
     appErrorPrefix: '[hottowel Error] ',
-    appTitle: 'hottowel'
+    appTitle: 'VR Gallery'
   };
 
   core.value('config', config);

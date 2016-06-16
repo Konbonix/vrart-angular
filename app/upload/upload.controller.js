@@ -50,7 +50,7 @@
 
                                 alert($scope.albumid);
                                 //Why does angular $window not work? or window.location?
-                                window.location.replace("#/albums/" + $scope.albumid);
+                                window.location.replace("/a/" + $scope.albumid);
                             });
 
 

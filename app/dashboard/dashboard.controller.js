@@ -10,34 +10,28 @@
   function DashboardController($q, dataservice, logger) {
     var vm = this;
     vm.news = {
-      title: 'hottowel',
+      title: 'VR Gallery',
       description: 'Hot Towel Angular is a SPA template for Angular developers.'
     };
-    vm.messageCount = 0;
     vm.people = [];
+    vm.albums = [];
     vm.title = 'Dashboard';
 
     activate();
 
     function activate() {
-      var promises = [getMessageCount(), getPeople()];
+      var promises = [getAlbums()];
       return $q.all(promises).then(function() {
         logger.info('Activated Dashboard View');
       });
     }
-
-    function getMessageCount() {
-      return dataservice.getMessageCount().then(function(data) {
-        vm.messageCount = data;
-        return vm.messageCount;
+    
+    function getAlbums() {
+      return dataservice.getAlbums().then(function(data) {
+        vm.albums = data;
+        return vm.albums;
       });
     }
-
-    function getPeople() {
-      return dataservice.getPeople().then(function(data) {
-        vm.people = data;
-        return vm.people;
-      });
-    }
+   
   }
 })();
