@@ -16,7 +16,7 @@
       {
         state: 'album',
         config: {
-          url: '/album',
+          url: '/a/{albumUrl}',
           templateUrl: 'app/album/album.html',
           controller: 'albumController',
           controllerAs: 'vm',

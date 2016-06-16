@@ -5,31 +5,32 @@
     .module('app.album')
     .controller('albumController', albumController);
 
-  albumController.$inject = ['$q', 'dataservice', 'logger'];
+  albumController.$inject = ['$q', 'dataservice', 'logger', '$stateParams'];
   /* @ngInject */
-  function albumController($q, dataservice, logger) {
+  function albumController($q, dataservice, logger, $stateParams) {
     var vm = this;
     vm.news = {
       title: 'Test',
       description: 'Hot Towel Angular is a SPA template for Angular developers.'
     };
+    vm.albumUrl = $stateParams.albumUrl;
     vm.messageCount = 0;
-    vm.albums = [];
+    vm.albumId;
     vm.title = 'Tilt Brush Albums';
 
     activate();
 
     function activate() {
-      var promises = [getAlbums()];
+      var promises = [getAlbumEdit(vm.albumUrl)];
       return $q.all(promises).then(function() {
         logger.info('Activated album View');
       });
     }
 
 
-    function getAlbums() {
-      return dataservice.getAlbums().then(function(data) {
-        vm.albums = data;
+    function getAlbumEdit(albumUrl) {
+      return dataservice.getAlbumEdit(albumUrl).then(function(data) {
+        vm.albumId = data.albumId;
         return vm.albums;
       });
     }
