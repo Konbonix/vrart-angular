@@ -5,10 +5,11 @@
     .module('app.album')
     .controller('albumController', albumController);
 
-  albumController.$inject = ['$q', 'dataservice', 'logger', '$stateParams'];
+  albumController.$inject = ['$q', 'dataservice', 'logger', '$state', 'routerHelper', '$stateParams'];
   /* @ngInject */
-  function albumController($q, dataservice, logger, $stateParams) {
+  function albumController($q, dataservice, logger, $state, routerHelper, $stateParams) {
     var vm = this;
+    vm.states = routerHelper.getStates();
     vm.news = {
       title: 'Test',
       description: 'Hot Towel Angular is a SPA template for Angular developers.'
